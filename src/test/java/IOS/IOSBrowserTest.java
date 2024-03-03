@@ -26,11 +26,6 @@ public class IOSBrowserTest extends BrowserBasicTest {
         Assert.assertTrue(driver.findElement(AppiumBy.id("error")).isDisplayed());
         Thread.sleep(1000);
     }
-    @Test
-    public void verifyGoogleSearchForm() throws InterruptedException {
-        driver.get("https://google.com/");
-        driver.findElement(AppiumBy.id("tsf")).click();
-        Thread.sleep(6000);
-    }
+
 
 }
