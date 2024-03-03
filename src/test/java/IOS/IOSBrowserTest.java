@@ -1,15 +1,12 @@
-package Android;
+package IOS;
 
 import io.appium.java_client.AppiumBy;
+import io.appium.java_client.android.nativekey.AndroidKey;
+import io.appium.java_client.android.nativekey.KeyEvent;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class AndroidBrowserTest extends BrowserBasicTest{
-    @Test
-    public void FirstTest() throws InterruptedException {
-        driver.get("http://appium.io/docs/en/latest/");
-        Thread.sleep(1000);
-    }
+public class IOSBrowserTest extends BrowserBasicTest {
     @Test
     public void verifyLoginFormWithValidCreds() throws InterruptedException {
         driver.get("https://practicetestautomation.com/practice-test-login//");
@@ -28,6 +25,12 @@ public class AndroidBrowserTest extends BrowserBasicTest{
         driver.findElement(AppiumBy.id("submit")).click();
         Assert.assertTrue(driver.findElement(AppiumBy.id("error")).isDisplayed());
         Thread.sleep(1000);
+    }
+    @Test
+    public void verifyGoogleSearchForm() throws InterruptedException {
+        driver.get("https://google.com/");
+        driver.findElement(AppiumBy.id("tsf")).click();
+        Thread.sleep(6000);
     }
 
 }

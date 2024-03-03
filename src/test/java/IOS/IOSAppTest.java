@@ -16,5 +16,19 @@ public class IOSAppTest extends AppBasicTest {
         String value = driver.findElement(AppiumBy.xpath("(//XCUIElementTypeStaticText)[2]")).getAttribute("value");
         Assert.assertNotEquals(value, "0");
     }
+    @Test
+    public void scrollIntoElementTest() throws InterruptedException {
+        RemoteWebElement el = (RemoteWebElement) driver.findElement(AppiumBy.accessibilityId("Web View"));
+        scrollIntoElement(el);
+        Thread.sleep(5000);
+        el.click();
+    }
+    @Test
+    public void pickerWheelTest() throws InterruptedException {
+        driver.findElement(AppiumBy.accessibilityId("Picker View")).click();
+        driver.findElement(AppiumBy.accessibilityId("Red color component value")).sendKeys("80");
+        String val = driver.findElement(AppiumBy.accessibilityId("Red color component value")).getText();
+        Assert.assertEquals(val, "80");
+    }
 
 }

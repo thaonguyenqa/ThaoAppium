@@ -36,6 +36,15 @@ public class AppBasicTest {
         js.executeScript("mobile: touchAndHold", params);
 
     }
+    public void scrollIntoElement(RemoteWebElement ele){
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        Map<String, Object> params = new HashMap<>();
+        params.put("element", ((RemoteWebElement) ele).getId());
+        params.put("direction", "down");
+        js.executeScript("mobile: scroll", params);
+
+
+    }
 
 
 }
