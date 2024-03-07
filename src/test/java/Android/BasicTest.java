@@ -15,8 +15,9 @@ public class BasicTest {
     @BeforeClass
     public void AppiumTest() throws MalformedURLException {
         UiAutomator2Options options = new UiAutomator2Options();
-        options.setDeviceName("samsung SM-A125F");
+//        options.setDeviceName("samsung SM-A125F");
         options.setApp("/Users/thaonguyen/ThaoAppium/src/test/java/resources/ApiDemos-debug.apk");
+        options.setCapability("udid", "R58NC2CQAHF");
         driver = new AndroidDriver(new URL("http://127.0.0.1:4723"), options);
 
     }

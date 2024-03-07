@@ -80,5 +80,23 @@ public class AndroidAppTest extends BasicTest{
         Assert.assertEquals(alertTitle, "WiFi settings");
         driver.pressKey(new KeyEvent(AndroidKey.DIGIT_1));
     }
+    @Test
+    public void handleAlertsTestWithAcceptMethod() throws InterruptedException {
+        driver.findElement(AppiumBy.accessibilityId("App")).click();
+        Thread.sleep(1000);
+        driver.findElement(AppiumBy.accessibilityId("Alert Dialogs")).click();
+        driver.findElement(AppiumBy.accessibilityId("OK Cancel dialog with a message")).click();
+        driver.switchTo().alert().accept();
+        driver.findElement(AppiumBy.accessibilityId("OK Cancel dialog with a message")).isDisplayed();
+    }
+    @Test
+    public void handleAlertsTestWithDismissMethod() throws InterruptedException {
+        driver.findElement(AppiumBy.accessibilityId("App")).click();
+        Thread.sleep(1000);
+        driver.findElement(AppiumBy.accessibilityId("Alert Dialogs")).click();
+        driver.findElement(AppiumBy.accessibilityId("OK Cancel dialog with a message")).click();
+        driver.switchTo().alert().dismiss();
+        driver.findElement(AppiumBy.accessibilityId("OK Cancel dialog with a message")).isDisplayed();
+    }
 
 }
