@@ -3,11 +3,13 @@ package IOS;
 import org.openqa.selenium.remote.RemoteWebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import pageObjects.iOS.App.PickerViewPage;
+import pageObjects.iOS.App.SteppersPage;
 
 public class IOSAppTest extends AppBasicTest {
     @Test
     public void longTapTest() throws InterruptedException {
-        homePage.steppers.click();
+        SteppersPage steppersPage = homePage.selectSteppers();
         RemoteWebElement incIcon = (RemoteWebElement) steppersPage.incrementButton;
         longTap(incIcon);
         Thread.sleep(5000);
@@ -16,7 +18,7 @@ public class IOSAppTest extends AppBasicTest {
     }
     @Test
     public void scrollIntoElementTest() throws InterruptedException {
-        RemoteWebElement el = (RemoteWebElement) homePage.webView;
+        RemoteWebElement el = (RemoteWebElement) homePage.getWebViewElement();
         scrollIntoElement(el);
         Thread.sleep(5000);
         el.click();
@@ -24,7 +26,7 @@ public class IOSAppTest extends AppBasicTest {
 
     @Test
     public void pickerWheelTest() throws InterruptedException {
-        homePage.pickerView.click();
+        PickerViewPage pickerViewPage = homePage.selectPickerView();
         pickerViewPage.redColorComponentValue.sendKeys("80");
         String val = pickerViewPage.redColorComponentValue.getText();
         Assert.assertEquals(val, "80");

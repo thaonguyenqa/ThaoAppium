@@ -18,8 +18,7 @@ import java.util.Map;
 public class AppBasicTest {
     public IOSDriver driver;
     public HomePage homePage;
-    public PickerViewPage pickerViewPage;
-    public SteppersPage steppersPage;
+
     @BeforeClass
     public void AppiumTest() throws MalformedURLException {
         XCUITestOptions options = new XCUITestOptions();
@@ -27,8 +26,7 @@ public class AppBasicTest {
         options.setApp("/Users/thaonguyen/ThaoAppium/src/test/java/resources/UIKitCatalog.app");
         driver = new IOSDriver(new URL("http://127.0.0.1:4723"), options);
         homePage = new HomePage(driver);
-        pickerViewPage = new PickerViewPage(driver);
-        steppersPage = new SteppersPage(driver);
+
     }
 
     @AfterClass

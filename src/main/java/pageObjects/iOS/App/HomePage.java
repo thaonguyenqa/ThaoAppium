@@ -13,9 +13,24 @@ public class HomePage {
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
     }
     @iOSXCUITFindBy(accessibility="Picker View")
-    public WebElement pickerView;
+    private WebElement pickerView;
     @iOSXCUITFindBy(accessibility="Web View")
-    public WebElement webView;
+    private WebElement webView;
     @iOSXCUITFindBy(iOSClassChain="**/XCUIElementTypeStaticText[`name == 'Steppers'`]")
-    public WebElement steppers;
+    private WebElement steppers;
+    public PickerViewPage selectPickerView(){
+        pickerView.click();
+        return new PickerViewPage(driver);
+    }
+    public void selectWebView(){
+        webView.click();
+    }
+    public WebElement getWebViewElement(){
+        return webView;
+    }
+    public SteppersPage selectSteppers(){
+        steppers.click();
+        return new SteppersPage(driver);
+    }
+
 }
