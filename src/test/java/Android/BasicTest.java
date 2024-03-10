@@ -31,7 +31,7 @@ public class BasicTest {
         ((JavascriptExecutor) driver).executeScript("mobile: longClickGesture", ImmutableMap.of(
                 "elementId", ((RemoteWebElement) ele).getId()));
     }
-    public void scrollGesture(RemoteWebElement ele, String direction){
+    public void swipeGesture(RemoteWebElement ele, String direction){
         ((JavascriptExecutor) driver).executeScript("mobile: swipeGesture", ImmutableMap.of(
                 "elementId", ((RemoteWebElement) ele).getId(),
                 "direction", direction,

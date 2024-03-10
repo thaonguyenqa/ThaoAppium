@@ -1,9 +1,11 @@
 package Android;
 
 import io.appium.java_client.AppiumBy;
+import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.nativekey.AndroidKey;
 import io.appium.java_client.android.nativekey.KeyEvent;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.RemoteWebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -45,6 +47,7 @@ public class AndroidAppTest extends BasicTest{
                 "new UiScrollable(new UiSelector().scrollable(true))" +
                         ".scrollIntoView(new UiSelector().text(\"WebView\"))")).click();
     }
+
     @Test
     public void swipeTest() throws InterruptedException {
         driver.findElement(AppiumBy.accessibilityId("Views")).click();
@@ -54,7 +57,7 @@ public class AndroidAppTest extends BasicTest{
         RemoteWebElement firstImage = (RemoteWebElement)driver.findElement(By.xpath("(//android.widget.ImageView)[1]"));
         // Note: Should not use firstImage to get attribute focusable because after swiping, it is not present in the DOM
         Assert.assertEquals(driver.findElement(By.xpath("(//android.widget.ImageView)[1]")).getAttribute("focusable"),"true");
-        scrollGesture(firstImage, "left");
+        swipeGesture(firstImage, "left");
         Assert.assertEquals(driver.findElement(By.xpath("(//android.widget.ImageView)[1]")).getAttribute("focusable"),"false");
     }
     @Test
@@ -98,5 +101,6 @@ public class AndroidAppTest extends BasicTest{
         driver.switchTo().alert().dismiss();
         driver.findElement(AppiumBy.accessibilityId("OK Cancel dialog with a message")).isDisplayed();
     }
+
 
 }

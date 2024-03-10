@@ -17,6 +17,7 @@ public class IOSBrowserTest extends BrowserBasicTest {
         Assert.assertEquals(driver.findElement(AppiumBy.className("post-title")).getText(),"Logged In Successfully");
         Thread.sleep(1000);
     }
+
     @Test
     public void verifyLoginFormWithInvalidCreds() throws InterruptedException {
         driver.get("https://practicetestautomation.com/practice-test-login/");
