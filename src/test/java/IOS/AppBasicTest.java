@@ -34,23 +34,7 @@ public class AppBasicTest {
         driver.quit();
     }
 
-    public void longTap(RemoteWebElement ele){
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        Map<String, Object> params = new HashMap<>();
-        params.put("duration", 2.0);
-        params.put("element", ((RemoteWebElement) ele).getId());
-        js.executeScript("mobile: touchAndHold", params);
 
-    }
-    public void scrollIntoElement(RemoteWebElement ele){
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        Map<String, Object> params = new HashMap<>();
-        params.put("element", ((RemoteWebElement) ele).getId());
-        params.put("direction", "down");
-        js.executeScript("mobile: scroll", params);
-
-
-    }
 
 
 }

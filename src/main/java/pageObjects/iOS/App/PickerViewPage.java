@@ -14,5 +14,12 @@ public class PickerViewPage {
     }
 
     @iOSXCUITFindBy(accessibility="Red color component value")
-    public WebElement redColorComponentValue;
+    private WebElement redColorComponentValue;
+    public void setRedColorComponentValue(String val){
+        redColorComponentValue.sendKeys(val);
+    }
+    public String getRedColorComponentValue(){
+        return redColorComponentValue.getText();
+    }
+
 }

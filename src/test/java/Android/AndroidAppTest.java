@@ -102,5 +102,4 @@ public class AndroidAppTest extends BasicTest{
         driver.findElement(AppiumBy.accessibilityId("OK Cancel dialog with a message")).isDisplayed();
     }
 
-
 }

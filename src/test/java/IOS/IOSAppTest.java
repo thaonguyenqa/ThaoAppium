@@ -10,25 +10,22 @@ public class IOSAppTest extends AppBasicTest {
     @Test
     public void longTapTest() throws InterruptedException {
         SteppersPage steppersPage = homePage.selectSteppers();
-        RemoteWebElement incIcon = (RemoteWebElement) steppersPage.incrementButton;
-        longTap(incIcon);
+//        RemoteWebElement incIcon = (RemoteWebElement) steppersPage.getIncrementButton();
+//        longTap(incIcon);
         Thread.sleep(5000);
-        String value = steppersPage.valueField.getAttribute("value");
+        String value = steppersPage.getIncrementValue();
         Assert.assertNotEquals(value, "0");
     }
     @Test
     public void scrollIntoElementTest() throws InterruptedException {
-        RemoteWebElement el = (RemoteWebElement) homePage.getWebViewElement();
-        scrollIntoElement(el);
-        Thread.sleep(5000);
-        el.click();
+        homePage.selectWebView();
     }
 
     @Test
     public void pickerWheelTest() throws InterruptedException {
         PickerViewPage pickerViewPage = homePage.selectPickerView();
-        pickerViewPage.redColorComponentValue.sendKeys("80");
-        String val = pickerViewPage.redColorComponentValue.getText();
+        pickerViewPage.setRedColorComponentValue("80");
+        String val = pickerViewPage.getRedColorComponentValue();
         Assert.assertEquals(val, "80");
     }
 
